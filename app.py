@@ -1,5 +1,5 @@
 import streamlit as st
-import pickle
+import joblib
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler,OneHotEncoder
@@ -76,7 +76,7 @@ else:
     input_data= user_input_features()
 st.write(input_data)
 
-system= pickle.load(open('model.pkl','rb'))
+system= joblib.load('irrigation_model')
 
 prediction= system.predict(input_data)
 prediction_proba= system.predict_proba(input_data)
