@@ -6,6 +6,16 @@ from sklearn.preprocessing import StandardScaler,OneHotEncoder
 from sklearn.compose import ColumnTransformer
 #---------------------------------------------------------
 
+from sklearn.compose import _column_transformer as _ct_mod
+
+if not hasattr(_ct_mod, "_RemainderColsList"):
+    class _RemainderColsList(list):
+        pass
+
+    _ct_mod._RemainderColsList = _RemainderColsList
+  
+#------------------------------------------------------------
+
 st.set_page_config(page_title= 'recommendation system',
                   layout='wide')
 
